@@ -48,12 +48,12 @@ M.general = {
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
 
-    ["<leader>tt"] = {
-      function()
-        require("base46").toggle_theme()
-      end,
-      "toggle theme",
-    },
+    -- ["<leader>tt"] = {
+    --   function()
+    --     require("base46").toggle_theme()
+    --   end,
+    --   "toggle theme",
+    -- },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -68,7 +68,11 @@ M.general = {
     ["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
   },
 
-  t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
+  t = {
+    ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" },
+    ["jk"] = { termcodes "<C-\\><C-N>", "escape terminal mode" },
+    ["jj"] = { termcodes "<C-\\><C-N>", "escape terminal mode" },
+  },
 
   v = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
@@ -297,54 +301,54 @@ M.telescope = {
     ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
 
     -- theme switcher
-    ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
-  },
+  ["<C-t>"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
+},
 }
 
 M.nvterm = {
-  plugin = true,
+plugin = true,
 
-  t = {
-    -- toggle in terminal mode
-    ["<A-i>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "toggle floating term",
-    },
-
-    ["<A-h>"] = {
-      function()
-        require("nvterm.terminal").toggle "horizontal"
-      end,
-      "toggle horizontal term",
-    },
-
-    ["<A-v>"] = {
-      function()
-        require("nvterm.terminal").toggle "vertical"
-      end,
-      "toggle vertical term",
-    },
+t = {
+  -- toggle in terminal mode
+  ["<leader>tt"] = {
+    function()
+      require("nvterm.terminal").toggle "float"
+    end,
+    "toggle floating term",
   },
 
-  n = {
-    -- toggle in normal mode
-    ["<A-i>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "toggle floating term",
-    },
+  ["<leader>th"] = {
+    function()
+      require("nvterm.terminal").toggle "horizontal"
+    end,
+    "toggle horizontal term",
+  },
 
-    ["<A-h>"] = {
+  ["<leader>tr"] = {
+    function()
+      require("nvterm.terminal").toggle "vertical"
+    end,
+    "toggle vertical term",
+  },
+},
+
+n = {
+  -- toggle in normal mode
+  ["<leader>tt"] = {
+    function()
+      require("nvterm.terminal").toggle "float"
+    end,
+    "toggle floating term",
+  },
+
+  ["<leader>th"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+  ["<leader>tr"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
