@@ -64,4 +64,10 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+lspconfig.tsserver.setup {
+  on_attach = M.on_attach,
+  flags = M.lsp_flags,
+  capabilities = M.capabilities,
+}
+
 return M

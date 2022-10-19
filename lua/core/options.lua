@@ -10,6 +10,8 @@ g.theme_switcher_loaded = false
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
+opt.relativenumber = true
+
 opt.title = true
 opt.clipboard = "unnamedplus"
 opt.cursorline = true

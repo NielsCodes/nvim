@@ -82,7 +82,14 @@ local plugins = {
     run = ":TSUpdate",
     config = function()
       require "plugins.configs.treesitter"
-    end,
+    end
+  },
+
+  ["phaazon/hop.nvim"] = {
+    branch = 'v2',
+    config = function()
+      require "plugins.configs.hop"
+    end
   },
 
   -- git stuff

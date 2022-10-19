@@ -8,6 +8,8 @@ local M = {}
 
 M.general = {
   i = {
+    ["jk"] = { "<ESC>", "escape insert mode", opts = {nowait = true}},
+    ["jj"] = { "<ESC>", "escape insert mode", opts = {nowait = true}},
     -- go to  beginning and end
     ["<C-b>"] = { "<ESC>^i", "beginning of line" },
     ["<C-e>"] = { "<End>", "end of line" },
@@ -37,6 +39,11 @@ M.general = {
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
+
+    ["<leader>fl"] = { "<cmd>HopLine<cr>", "hint lines"},
+    ["<leader>fw"] = { "<cmd>HopWord<cr>", "hint words"},
+    ["<leader>fp"] = { "<cmd>HopPattern<cr>", "hint pattern"},
+    ["<leader>fc"] = { "<cmd>HopChar1<cr>", "hint char"},
 
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
@@ -276,7 +283,7 @@ M.telescope = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
-    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+    ["<leader>fW"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
