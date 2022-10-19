@@ -33,4 +33,6 @@ pcall(require, "custom")
 
 require("core.utils").load_mappings()
 
-vim.cmd("source neovide.vim")
+-- vim.cmd("source <sfile>:h/neovide.vim")
+vim.cmd("runtime neovide.vim")
+-- vim.cmd("source /lua/plugins/neovide.vim")
