@@ -8,9 +8,7 @@ local M = {}
 
 M.general = {
   i = {
-    ["jk"] = { "<ESC>", "escape insert mode", opts = {nowait = true}},
-    ["jj"] = { "<ESC>", "escape insert mode", opts = {nowait = true}},
-    -- go to  beginning and end
+        -- go to  beginning and end
     ["<C-b>"] = { "<ESC>^i", "beginning of line" },
     ["<C-e>"] = { "<End>", "end of line" },
 

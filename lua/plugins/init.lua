@@ -85,13 +85,6 @@ local plugins = {
     end
   },
 
-  ["phaazon/hop.nvim"] = {
-    branch = 'v2',
-    config = function()
-      require "plugins.configs.hop"
-    end
-  },
-
   -- git stuff
   ["lewis6991/gitsigns.nvim"] = {
     ft = "gitcommit",
@@ -159,7 +152,7 @@ local plugins = {
 
   ["goolord/alpha-nvim"] = {
     after = "base46",
-    disable = false,
+    disable = true,
     config = function()
       require "plugins.configs.alpha"
     end,
