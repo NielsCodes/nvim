@@ -38,11 +38,6 @@ M.general = {
     ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
 
-    ["<leader>fl"] = { "<cmd>HopLine<cr>", "hint lines"},
-    ["<leader>fw"] = { "<cmd>HopWord<cr>", "hint words"},
-    ["<leader>fp"] = { "<cmd>HopPattern<cr>", "hint pattern"},
-    ["<leader>fc"] = { "<cmd>HopChar1<cr>", "hint char"},
-
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
 
