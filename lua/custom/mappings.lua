@@ -8,7 +8,7 @@ M.general = {
   },
   n = {
     ["<leader>fl"] = { "<cmd>HopLine<cr>", "hint lines"},
-    ["<leader>fw"] = { "<cmd>HopWord<cr>", "hint words"},
+    ["<leader>fg"] = { "<cmd>HopWord<cr>", "hint words"},
     ["<leader>fp"] = { "<cmd>HopPattern<cr>", "hint pattern"},
     ["<leader>fc"] = { "<cmd>HopChar1<cr>", "hint char"},
   }
