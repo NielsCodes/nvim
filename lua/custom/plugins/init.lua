@@ -13,4 +13,15 @@ return {
     end
   },
   -- ["wakatime/vim-wakatime"] = {},
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = 'nvim-lspconfig',
+    config = function()
+      require('null-ls').setup({
+        sources = {
+          require('null-ls').builtins.formatting.prettier,
+          require('null-ls').builtins.formatting.stylua,
+        }
+      })
+    end
+  }
 }
