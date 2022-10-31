@@ -31,5 +31,11 @@ return {
     config = function()
       require('todo-comments').setup {}
     end
+  },
+  ["folke/trouble.nvim"] = {
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+     require('trouble').setup {}
+    end
   }
 }
