@@ -9,6 +9,4 @@ M.ui = {
 M.plugins = require('custom.plugins')
 M.mappings = require('custom.mappings')
 
-vim.diagnostic.config({virtual_text = false})
-
 return M

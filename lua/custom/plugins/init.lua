@@ -7,7 +7,7 @@ return {
   },
 
   ["phaazon/hop.nvim"] = {
-    branch = '',
+    branch = 'v2',
     config = function()
       require("hop").setup { keys = 'etovxqpdygfblzhckisuran' }
     end

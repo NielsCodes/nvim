@@ -21,6 +21,8 @@ M.on_attach = function(client, bufnr)
   if client.server_capabilities.signatureHelpProvider then
     require("nvchad_ui.signature").setup(client)
   end
+
+  vim.diagnostic.config({virtual_text = false})
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
