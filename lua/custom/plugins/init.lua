@@ -7,12 +7,12 @@ return {
   },
 
   ["phaazon/hop.nvim"] = {
-    branch = 'v2',
+    branch = '',
     config = function()
       require("hop").setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   },
-  -- ["wakatime/vim-wakatime"] = {},
+  ["wakatime/vim-wakatime"] = {},
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = 'nvim-lspconfig',
     config = function()
@@ -20,6 +20,7 @@ return {
         sources = {
           require('null-ls').builtins.formatting.prettier,
           require('null-ls').builtins.formatting.stylua,
+          require('null-ls').builtins.formatting.terraform_fmt,
         }
       })
     end
