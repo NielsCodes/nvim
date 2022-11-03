@@ -303,21 +303,21 @@ plugin = true,
 
 t = {
   -- toggle in terminal mode
-  ["<leader>tt"] = {
+  ["TT"] = {
     function()
       require("nvterm.terminal").toggle "float"
     end,
     "toggle floating term",
   },
 
-  ["<leader>th"] = {
+  ["TH"] = {
     function()
       require("nvterm.terminal").toggle "horizontal"
     end,
     "toggle horizontal term",
   },
 
-  ["<leader>tr"] = {
+  ["TR"] = {
     function()
       require("nvterm.terminal").toggle "vertical"
     end,
