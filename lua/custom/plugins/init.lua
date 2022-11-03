@@ -26,6 +26,7 @@ return {
     end
   },
   -- TODO: Implement mapping for :TodoTelescope and look into grep preview highlights
+  -- TODO: Look into grep preview highlights
   ["folke/todo-comments.nvim"] = {
     requires = "nvim-lua/plenary.nvim",
     config = function()
@@ -37,5 +38,13 @@ return {
     config = function()
      require('trouble').setup {}
     end
+  },
+  ["nvim-treesitter/nvim-treesitter"] = {},
+  ["nvim-treesitter/nvim-treesitter-context"] = {
+    requires = "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require('treesitter-context').setup {}
+    end
+  },
   }
 }
