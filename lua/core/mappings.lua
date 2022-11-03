@@ -39,7 +39,7 @@ M.general = {
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
 
     -- update nvchad
-    ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
+    -- ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
 
     -- ["<leader>tt"] = {
     --   function()
