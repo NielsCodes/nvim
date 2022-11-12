@@ -45,7 +45,7 @@ return {
       require('treesitter-context').setup {}
     end
   },
-  ["akinsho/git-conflict"] = {
+  ["akinsho/git-conflict.nvim"] = {
     config = function()
       require('git-conflict').setup()
     end
