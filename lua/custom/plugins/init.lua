@@ -49,5 +49,6 @@ return {
     config = function()
       require('git-conflict').setup()
     end
-  }
+  },
+  ["christoomey/vim-tmux-navigator"] = {}
 }
