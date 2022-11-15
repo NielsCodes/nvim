@@ -50,5 +50,11 @@ return {
       require('git-conflict').setup()
     end
   },
-  ["christoomey/vim-tmux-navigator"] = {}
+  ["christoomey/vim-tmux-navigator"] = {},
+  ["https://github.com/kylechui/nvim-surround"] = {
+    tag = "*",
+    config = function()
+      require('nvim-surround').setup()
+    end
+  }
 }
