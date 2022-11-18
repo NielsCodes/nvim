@@ -51,11 +51,23 @@ return {
     end
   },
   ["christoomey/vim-tmux-navigator"] = {},
-  ["https://github.com/kylechui/nvim-surround"] = {
+  ["kylechui/nvim-surround"] = {
     tag = "*",
     config = function()
       require('nvim-surround').setup()
     end
+  },
   ["tpope/vim-abolish"] = {},
+  ["sindrets/diffview.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require('diffview').setup({
+        view = {
+          merge_tool = {
+            layout = "diff3_mixed"
+          }
+        }
+      })
+    end
   }
 }
