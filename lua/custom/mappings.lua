@@ -1,6 +1,5 @@
 local M = {}
 
--- TODO: add terminal shortcuts
 M.general = {
   i = {
     ["jk"] = { "<ESC>", "escape insert mode", opts = {nowait = true}},
