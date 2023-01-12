@@ -140,26 +140,26 @@ M.lspconfig = {
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
   n = {
-    ["gD"] = {
-      function()
-        vim.lsp.buf.declaration()
-      end,
-      "lsp declaration",
-    },
+    -- ["gD"] = {
+    --   function()
+    --     vim.lsp.buf.declaration()
+    --   end,
+    --   "lsp declaration",
+    -- },
 
-    ["gd"] = {
+    ["gD"] = {
       function()
         vim.lsp.buf.definition()
       end,
       "lsp definition",
     },
 
-    ["K"] = {
-      function()
-        vim.lsp.buf.hover()
-      end,
-      "lsp hover",
-    },
+    -- ["K"] = {
+    --   function()
+    --     vim.lsp.buf.hover()
+    --   end,
+    --   "lsp hover",
+    -- },
 
     ["gi"] = {
       function()
@@ -182,19 +182,19 @@ M.lspconfig = {
       "lsp definition type",
     },
 
-    ["<leader>ra"] = {
-      function()
-        require("nvchad_ui.renamer").open()
-      end,
-      "lsp rename",
-    },
+    -- ["<leader>ra"] = {
+    --   function()
+    --     require("nvchad_ui.renamer").open()
+    --   end,
+    --   "lsp rename",
+    -- },
 
-    ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "lsp code_action",
-    },
+    -- ["<leader>ca"] = {
+    --   function()
+    --     vim.lsp.buf.code_action()
+    --   end,
+    --   "lsp code_action",
+    -- },
 
     ["gr"] = {
       function()
@@ -203,26 +203,26 @@ M.lspconfig = {
       "lsp references",
     },
 
-    ["<leader>f"] = {
-      function()
-        vim.diagnostic.open_float()
-      end,
-      "floating diagnostic",
-    },
+    -- ["<leader>f"] = {
+    --   function()
+    --     vim.diagnostic.open_float()
+    --   end,
+    --   "floating diagnostic",
+    -- },
 
-    ["[d"] = {
-      function()
-        vim.diagnostic.goto_prev()
-      end,
-      "goto prev",
-    },
-
-    ["d]"] = {
-      function()
-        vim.diagnostic.goto_next()
-      end,
-      "goto_next",
-    },
+    -- ["[d"] = {
+    --   function()
+    --     vim.diagnostic.goto_prev()
+    --   end,
+    --   "goto prev",
+    -- },
+    --
+    -- ["d]"] = {
+    --   function()
+    --     vim.diagnostic.goto_next()
+    --   end,
+    --   "goto_next",
+    -- },
 
     ["<leader>q"] = {
       function()

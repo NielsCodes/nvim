@@ -25,3 +25,4 @@ autocmd("VimEnter", {
     vim.cmd "command! -nargs=* -complete=customlist,v:lua.require'packer'.plugin_complete PackerSync lua require('plugins') require('core.utils').packer_sync(<f-args>)"
   end,
 })
+

@@ -69,5 +69,23 @@ return {
         }
       })
     end
+  },
+  ["glepnir/lspsaga.nvim"] = {
+    branch = "main",
+    config = function()
+      local saga = require("lspsaga")
+
+      saga.init_lsp_saga({
+        code_action_lightbulb = {
+          enable = false
+        },
+        rename_in_select = false
+      })
+    end
+  },
+  ["chentoast/marks.nvim"] = {
+    config = function()
+      require("marks").setup()
+    end
   }
 }

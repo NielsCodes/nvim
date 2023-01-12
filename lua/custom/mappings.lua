@@ -18,6 +18,19 @@ M.general = {
 
     -- Todo
     ["<leader>ii"] = { "<cmd>TodoTelescope<cr>", "show todos" },
+
+    -- LSP saga
+    ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "lsp saga" },
+    ["gd"] = { "<cmd>Lspsaga peek_definition<CR>", "peek definition" },
+    ["K"] = { "<cmd>Lspsaga hover_doc<CR>", "show docs" },
+    ["<leader>ra"] = { "<cmd>Lspsaga rename<CR>", "rename symbol" },
+    ["<leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "code actions" },
+    ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "jump to next diagnostic" },
+    ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "jump to previous diagnostic" },
+    -- TODO: Add diagnostic jump shortcut only for errors
+    ["<leader>f"] = { "<cmd>Lspsaga show_line_diagnostics<CR>", "show line diagnostics"},
+    ["<leader>o"] = { "<cmd>Lspsaga outline<CR>", "toggle outline"},
+    
   }
 }
 
