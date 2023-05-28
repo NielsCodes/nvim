@@ -75,7 +75,7 @@ return {
     config = function()
       local saga = require("lspsaga")
 
-      saga.init_lsp_saga({
+      saga.setup({
         code_action_lightbulb = {
           enable = false
         },
@@ -86,6 +86,11 @@ return {
   ["chentoast/marks.nvim"] = {
     config = function()
       require("marks").setup()
+    end
+  },
+  ["stevearc/oil.nvim"] = {
+    config = function()
+      require('oil').setup()
     end
   }
 }

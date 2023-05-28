@@ -31,6 +31,7 @@ M.general = {
     ["<leader>f"] = { "<cmd>Lspsaga show_line_diagnostics<CR>", "show line diagnostics"},
     ["<leader>o"] = { "<cmd>Lspsaga outline<CR>", "toggle outline"},
     
+    ["<leader>n"] = { "<cmd>Oil --float<CR>", "show oil editor" }
   }
 }
 
