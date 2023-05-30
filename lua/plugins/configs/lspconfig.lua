@@ -72,4 +72,6 @@ lspconfig.tsserver.setup {
   capabilities = M.capabilities,
 }
 
+lspconfig.astro.setup {}
+
 return M
