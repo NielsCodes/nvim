@@ -11,11 +11,12 @@ local M = {}
 
 M.ui = {
   theme = "ayu-dark",
+  hl_override = {
+    Comment = {
+      fg = "#8a8a8a"
+    }
+  }
 }
-
--- COLORS
-vim.api.nvim_set_hl(0, "Comment", { fg = "#8a8a8a" })
-vim.cmd 'hi Comment guifg=#8a8a8a'
 
 M.plugins = require('custom.plugins')
 M.mappings = require('custom.mappings')
