@@ -95,5 +95,21 @@ return {
     config = function()
       require('oil').setup()
     end
+  },
+  ["jackMort/ChatGPT.nvim"] = {
+    after = "telescope.nvim",
+    config = function()
+      require('chatgpt').setup({
+        api_key_cmd = "echo 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",
+        keymaps = {
+          close = {"<C-x>"}
+        }
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
   }
 }
