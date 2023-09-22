@@ -22,7 +22,7 @@ M.on_attach = function(client, bufnr)
     require("nvchad_ui.signature").setup(client)
   end
 
-  vim.diagnostic.config({virtual_text = false})
+  vim.diagnostic.config { virtual_text = false }
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -73,5 +73,6 @@ lspconfig.tsserver.setup {
 }
 
 lspconfig.astro.setup {}
+lspconfig.svelte.setup {}
 
 return M
