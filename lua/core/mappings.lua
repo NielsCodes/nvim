@@ -8,7 +8,7 @@ local M = {}
 
 M.general = {
   i = {
-        -- go to  beginning and end
+    -- go to  beginning and end
     ["<C-b>"] = { "<ESC>^i", "beginning of line" },
     ["<C-e>"] = { "<End>", "end of line" },
 
@@ -231,13 +231,18 @@ M.lspconfig = {
       "diagnostic setloclist",
     },
 
+    ["<Bslash>"] = { "<cmd> TbufPick <CR>", "Pick buffer" },
     ["<leader>fm"] = {
-      function()
-        vim.lsp.buf.format { async = true }
+      function(bufnr)
+        vim.api.nvim_out_write "Debug: Inside <leader>fm\n"
+        vim.api.nvim_out_write("Debug: bufnr = " .. tostring(bufnr) .. "\n")
+        -- vim.lsp.buf.format {
+        --   async = true,
+        -- }
+        require("conform").format { bufnr = bufnr }
       end,
       "lsp formatting",
     },
-
     ["<leader>wa"] = {
       function()
         vim.lsp.buf.add_workspace_folder()
@@ -294,8 +299,8 @@ M.telescope = {
     ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
 
     -- theme switcher
-  ["<C-t>"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
-},
+    ["<C-t>"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
+  },
 }
 
 M.whichkey = {
