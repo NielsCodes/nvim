@@ -45,6 +45,7 @@ local plugins = {
 
   ["lukas-reineke/indent-blankline.nvim"] = {
     opt = true,
+    tag = "v2.20.8",
     setup = function()
       require("core.lazy_load").on_file_open "indent-blankline.nvim"
       require("core.utils").load_mappings "blankline"
@@ -73,7 +74,7 @@ local plugins = {
     run = ":TSUpdate",
     config = function()
       require "plugins.configs.treesitter"
-    end
+    end,
   },
 
   -- git stuff
