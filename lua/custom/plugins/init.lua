@@ -21,15 +21,23 @@ return {
           lua = { "stylua" },
           javascript = { "prettierd" },
           typescript = { "prettierd" },
+          javascriptreact = { "prettierd" },
+          typescriptreact = { "prettierd" },
           svelte = { "prettierd", "rustywind" },
           terraform = { "terraform_fmt" },
+          yaml = { "prettier" },
+          python = { "isort", "black" },
         },
         format_on_save = {
-          -- These options will be passed to conform.format()
           timeout_ms = 500,
           lsp_fallback = true,
         },
       }
+    end,
+  },
+  ["glacambre/firenvim"] = {
+    run = function()
+      vim.fn["firenvim#install"](0)
     end,
   },
   -- TODO: Look into grep preview highlights
