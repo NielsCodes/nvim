@@ -140,12 +140,6 @@ M.lspconfig = {
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
   n = {
-    -- ["gD"] = {
-    --   function()
-    --     vim.lsp.buf.declaration()
-    --   end,
-    --   "lsp declaration",
-    -- },
 
     ["gD"] = {
       function()
@@ -234,12 +228,7 @@ M.lspconfig = {
     ["<Bslash>"] = { "<cmd> TbufPick <CR>", "Pick buffer" },
     ["<leader>fm"] = {
       function(bufnr)
-        vim.api.nvim_out_write "Debug: Inside <leader>fm\n"
-        vim.api.nvim_out_write("Debug: bufnr = " .. tostring(bufnr) .. "\n")
-        -- vim.lsp.buf.format {
-        --   async = true,
-        -- }
-        require("conform").format { bufnr = bufnr }
+        require("conform").format { bufnr = bufnr, async = true, lsp_fallback = true }
       end,
       "lsp formatting",
     },
