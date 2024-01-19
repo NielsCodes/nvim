@@ -45,11 +45,32 @@ local plugins = {
 
   ["lukas-reineke/indent-blankline.nvim"] = {
     opt = true,
-    tag = "v2.20.8",
     setup = function()
       require("core.lazy_load").on_file_open "indent-blankline.nvim"
       require("core.utils").load_mappings "blankline"
     end,
+    opts = {
+      enabled = true,
+      exclude = {
+        "help",
+        "terminal",
+        "starter",
+        "nvim-tree",
+        "packer",
+        "lspinfo",
+        "TelescopePrompt",
+        "TelescopeResults",
+        "mason",
+        "",
+      },
+      buftype_exclude = { "terminal" },
+      show_trailing_blankline_indent = false,
+      show_first_indent_level = false,
+      show_current_context = false,
+      indent = {
+        char = { "│" },
+      },
+    },
     config = function()
       require("plugins.configs.others").blankline()
     end,

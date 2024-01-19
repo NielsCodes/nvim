@@ -24,7 +24,7 @@ M.autopairs = function()
 end
 
 M.blankline = function()
-  local present, blankline = pcall(require, "indent_blankline")
+  local present, blankline = pcall(require, "ibl")
 
   if not present then
     return
@@ -32,28 +32,7 @@ M.blankline = function()
 
   require("base46").load_highlight "blankline"
 
-  local options = {
-    indentLine_enabled = 1,
-    filetype_exclude = {
-      "help",
-      "terminal",
-      "alpha",
-      "packer",
-      "lspinfo",
-      "TelescopePrompt",
-      "TelescopeResults",
-      "mason",
-      "",
-    },
-    buftype_exclude = { "terminal" },
-    show_trailing_blankline_indent = false,
-    show_first_indent_level = false,
-    show_current_context = true,
-    show_current_context_start = true,
-  }
-
-  options = load_override(options, "lukas-reineke/indent-blankline.nvim")
-  blankline.setup(options)
+  blankline.setup {}
 end
 
 M.colorizer = function()
@@ -146,9 +125,9 @@ M.gitsigns = function()
       topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
       changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
     },
-    on_attach = function (bufnr)
+    on_attach = function(bufnr)
       utils.load_mappings("gitsigns", { buffer = bufnr })
-    end
+    end,
   }
 
   options = load_override(options, "lewis6991/gitsigns.nvim")
