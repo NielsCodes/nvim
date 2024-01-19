@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("Filetype", {
 
 local options = {
   -- TODO: move to custom
-  ensure_installed = { "lua-language-server", "tsserver", "eslint", "html", "cssls" }, -- not an option from mason.nvim
+  ensure_installed = { "lua-language-server", "tsserver", "eslint", "html", "cssls", "black", "isort" }, -- not an option from mason.nvim
 
   PATH = "skip",
 
