@@ -118,12 +118,21 @@ M.gitsigns = function()
   require("base46").load_highlight "git"
 
   local options = {
+    -- Deprecated?
+    -- signs = {
+    --   add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
+    --   change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+    --   delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+    --   topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+    --   changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+    -- },
     signs = {
-      add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-      change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-      delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-      topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-      changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+      add = { text = "┃" },
+      change = { text = "┃" },
+      delete = { text = "_" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked = { text = "┆" },
     },
     on_attach = function(bufnr)
       utils.load_mappings("gitsigns", { buffer = bufnr })
