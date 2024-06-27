@@ -71,7 +71,7 @@ lspconfig.tsserver.setup {
   flags = M.lsp_flags,
   capabilities = M.capabilities,
 }
-
+lspconfig.gopls.setup {}
 lspconfig.astro.setup {}
 lspconfig.svelte.setup {}
 
