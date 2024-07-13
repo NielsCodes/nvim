@@ -3,6 +3,9 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 -- Escape insert mode
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, nowait = true })
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, nowait = true })
@@ -12,6 +15,9 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", {})
 
 -- Copy whole file
 vim.keymap.set("n", "<C-c>", ":%y+<CR>", {})
+
+-- Close current buffer
+vim.keymap.set("n", "<leader>x", ":bd<CR>", { noremap = true, silent = true })
 
 -- Tmux navigation in insert mode
 vim.keymap.set("i", "<C-h>", "<Left>", {})
@@ -29,7 +35,7 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.keymap.set("n", "<ESC>", ":nohl<CR>")
+vim.keymap.set("n", "<ESC>", ":nohl<CR>", { silent = true })
 
 -- Use system cliipboard
 vim.opt.clipboard:append("unnamed")
