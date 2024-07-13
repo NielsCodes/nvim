@@ -7,7 +7,11 @@ vim.cmd("set shiftwidth=2")
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, nowait = true })
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, nowait = true })
 
+-- Save file
 vim.keymap.set("n", "<C-s>", ":w<CR>", {})
+
+-- Copy whole file
+vim.keymap.set("n", "<C-c>", ":%y+<CR>", {})
 
 -- Tmux navigation in insert mode
 vim.keymap.set("i", "<C-h>", "<Left>", {})
