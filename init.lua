@@ -28,6 +28,15 @@ vim.keymap.set("n", "<ESC>", ":nohl<CR>")
 -- Use system cliipboard
 vim.opt.clipboard:append("unnamed")
 
+-- Background theme. Used by themes
 vim.g.background = "dark"
+
+-- Highlight yanked text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'Visual', timeout = 300 })
+  end,
+})
 
 require("config.lazy")
