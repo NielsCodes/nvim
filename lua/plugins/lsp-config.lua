@@ -23,9 +23,15 @@ return {
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
+
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 			})
+
+			lspconfig.svelte.setup({
+				capabilities = capabilities,
+			})
+
       lspconfig.terraformls.setup({
         capabilities = capabilities
       })
