@@ -28,4 +28,6 @@ vim.keymap.set("n", "<ESC>", ":nohl<CR>")
 -- Use system cliipboard
 vim.opt.clipboard:append("unnamed")
 
+vim.g.background = "dark"
+
 require("config.lazy")
