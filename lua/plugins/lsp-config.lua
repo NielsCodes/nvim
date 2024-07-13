@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "gopls", "tsserver", "eslint" },
+				ensure_installed = { "lua_ls", "gopls", "tsserver", "eslint", "html" },
 			})
 		end,
 	},
@@ -33,6 +33,18 @@ return {
 			})
 
 			lspconfig.terraformls.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
 
