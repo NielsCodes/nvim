@@ -43,12 +43,16 @@ vim.opt.clipboard:append("unnamed")
 -- Background theme. Used by themes
 vim.g.background = "dark"
 
+-- Make searching with / case insensitive, except when the query contains uppercase chars
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
 -- Highlight yanked text
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank({ higroup = 'Visual', timeout = 300 })
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual", timeout = 300 })
+	end,
 })
 
 require("config.lazy")
