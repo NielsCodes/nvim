@@ -1,3 +1,4 @@
+local actions = require("telescope.actions")
 return {
 	{
 		"nvim-telescope/telescope.nvim",
@@ -7,6 +8,7 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		config = function()
+			-- TODO: Move mappings into setup
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 			vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
@@ -23,6 +25,12 @@ return {
 		config = function()
 			require("telescope").setup({
 				defaults = {
+					mappings = {
+						n = {
+							["<C-g>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						},
+						i = {},
+					},
 					layout_config = {
 						prompt_position = "top",
 					},
