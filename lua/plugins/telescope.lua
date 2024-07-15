@@ -11,20 +11,20 @@ return {
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 			vim.keymap.set("n", "<leader>fm", builtin.marks, {})
-			vim.keymap.set("n", "<leader>gr", builtin.lsp_references, {})
-			vim.keymap.set("n", "<leader>gi", builtin.lsp_implementations, {})
+			vim.keymap.set("n", "gr", builtin.lsp_references, {})
+			vim.keymap.set("n", "gi", builtin.lsp_implementations, {})
 		end,
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
 			require("telescope").setup({
-        defaults = {
-          layout_config = {
-            prompt_position = "top"
-          },
-          sorting_strategy = "ascending"
-        },
+				defaults = {
+					layout_config = {
+						prompt_position = "top",
+					},
+					sorting_strategy = "ascending",
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
