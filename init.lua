@@ -55,4 +55,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Move cursor when creating a new window (such as a vsplit)
+vim.api.nvim_create_autocmd("WinNew", {
+	callback = function()
+		vim.cmd("wincmd l")
+	end,
+})
+
 require("config.lazy")
