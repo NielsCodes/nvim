@@ -47,6 +47,9 @@ vim.g.background = "dark"
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- Always show the signcolumn to prevent content from jumping when signs appear and disappear
+vim.opt.signcolumn = "yes"
+
 -- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
