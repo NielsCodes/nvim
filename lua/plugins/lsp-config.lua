@@ -40,6 +40,16 @@ return {
 
 			lspconfig.svelte.setup({
 				capabilities = capabilities,
+				-- This is because /lib file changes are otherwise not picked up automatically
+				-- https://github.com/sveltejs/language-tools/issues/2008#issuecomment-1838251681
+				on_attach = function(client, _)
+					vim.api.nvim_create_autocmd("BufWritePost", {
+						pattern = { "*.js", "*.ts" },
+						callback = function(ctx)
+							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+						end,
+					})
+				end,
 			})
 
 			lspconfig.terraformls.setup({
