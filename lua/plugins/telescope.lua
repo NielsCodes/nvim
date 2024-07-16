@@ -46,6 +46,9 @@ return {
 					sorting_strategy = "ascending",
 				},
 				pickers = {
+					oldfiles = {
+						cwd_only = true,
+					},
 					find_files = {
 						hidden = true,
 						no_ignore = true,
