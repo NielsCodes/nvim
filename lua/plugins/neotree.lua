@@ -8,6 +8,12 @@ return {
 	},
 	config = function()
 		require("neo-tree").setup({
+			window = {
+				mappings = {
+					["<cr>"] = "open_with_window_picker",
+					["w"] = "open",
+				},
+			},
 			filesystem = {
 				filtered_items = {
 					show_hidden_count = true,
