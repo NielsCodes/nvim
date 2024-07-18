@@ -30,6 +30,17 @@ return {
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			-- Disable inline diagnostics
+			vim.diagnostic.config({
+				virtual_text = false,
+				float = {
+					show_header = true,
+					source = "if_many",
+					border = "rounded",
+					focusable = false,
+				},
+			})
+
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
@@ -85,6 +96,7 @@ return {
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, { silent = true })
 		end,
 	},
 }
