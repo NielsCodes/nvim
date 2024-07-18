@@ -50,6 +50,12 @@ vim.o.smartcase = true
 -- Always show the signcolumn to prevent content from jumping when signs appear and disappear
 vim.opt.signcolumn = "yes"
 
+-- Vertical split and move to new window
+vim.api.nvim_set_keymap("n", "<leader>v", ":vsplit<CR><C-w>w", { noremap = true, silent = true })
+
+-- Horizontal split and move to new window
+vim.api.nvim_set_keymap("n", "<leader>s", ":split<CR><C-w>w", { noremap = true, silent = true })
+
 -- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
