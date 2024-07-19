@@ -27,7 +27,7 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal toggle<CR>", {})
-		vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>", {})
+		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal toggle<CR>", { silent = true })
+		vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>", { silent = true })
 	end,
 }
