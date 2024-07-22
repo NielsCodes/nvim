@@ -49,6 +49,18 @@ return {
 					oldfiles = {
 						cwd_only = true,
 					},
+					live_grep = {
+						additional_args = function()
+							return {
+								"--glob",
+								"!pnpm-lock.yaml",
+								"--glob",
+								"!package-lock.json",
+								"--glob",
+								"!yarn.lock",
+							}
+						end,
+					},
 					find_files = {
 						hidden = true,
 						no_ignore = true,
@@ -67,6 +79,12 @@ return {
 							"!.terraform",
 							"--glob",
 							"!build",
+							"--glob",
+							"!pnpm-lock.yaml",
+							"--glob",
+							"!package-lock.json",
+							"--glob",
+							"!yarn.lock",
 						},
 						file_ignore_patterns = {
 							".git/",
@@ -74,6 +92,9 @@ return {
 							"%.svelte%-kit/",
 							".terraform/",
 							"build/",
+							"pnpm%-lock%.yaml",
+							"package%-lock.json",
+							"yarn.lock",
 						},
 					},
 				},
