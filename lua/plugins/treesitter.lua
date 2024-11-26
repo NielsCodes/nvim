@@ -15,11 +15,14 @@ return {
 				"css",
 				"sql",
 				"prisma",
+				"html",
 			},
 			highlight = {
 				enable = true,
 			},
 			indent = { enable = true },
 		})
+
+		vim.treesitter.language.register("html", "mjml")
 	end,
 }

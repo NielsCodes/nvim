@@ -64,6 +64,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.filetype.add({
+	extension = {
+		mjml = "html",
+	},
+})
+
 -- Move cursor when creating a new window (such as a vsplit)
 -- vim.api.nvim_create_autocmd("WinNew", {
 -- 	callback = function()
