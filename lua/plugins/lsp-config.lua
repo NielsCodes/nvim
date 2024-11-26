@@ -19,6 +19,7 @@ return {
 					"svelte",
 					"sqlls",
 					"prismals",
+					"pyright",
 				},
 			})
 		end,
@@ -42,6 +43,10 @@ return {
 			})
 
 			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
 
