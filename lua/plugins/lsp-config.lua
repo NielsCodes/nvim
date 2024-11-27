@@ -12,7 +12,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"gopls",
-					"tsserver",
+					"ts_ls",
 					"eslint",
 					"html",
 					"cssls",
