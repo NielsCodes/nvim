@@ -1,6 +1,6 @@
 return {
 	"filipdutescu/renamer.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	config = function()
 		require("renamer").setup()
 
