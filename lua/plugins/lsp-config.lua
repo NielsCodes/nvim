@@ -20,12 +20,18 @@ return {
 					"sqlls",
 					"prismals",
 					"pyright",
+					"helm_ls",
+					"yamlls",
 				},
 			})
 		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
+		version = "*",
+		dependencies = {
+			"towolf/vim-helm",
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 
@@ -94,6 +100,17 @@ return {
 
 			lspconfig.prismals.setup({
 				capabilities = capabilities,
+			})
+
+			lspconfig.helm_ls.setup({
+				capabilities = capabilities,
+				settings = {
+					["helm-ls"] = {
+						yamlls = {
+							path = "yaml-language-server",
+						},
+					},
+				},
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
