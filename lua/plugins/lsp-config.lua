@@ -33,7 +33,7 @@ return {
 						require("lspconfig")[server_name].setup({})
 					end,
 
-					-- Custom handler for yamlls to prevent attachment to helm files
+					-- Custom handler for yamlls
 					yamlls = function()
 						require("lspconfig").yamlls.setup({
 							on_attach = function(client, bufnr)
@@ -49,9 +49,16 @@ return {
 							end,
 							settings = {
 								yaml = {
-									schemas = {
-										["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+									validate = false,
+									schemaStore = {
+										enable = false,
 									},
+									schemas = {},
+									format = {
+										enable = false,
+									},
+									hover = false,
+									completion = false,
 								},
 							},
 						})
@@ -159,33 +166,6 @@ return {
 				},
 			})
 
-			lspconfig.yamlls.setup({
-				capabilities = capabilities,
-				settings = {
-					yaml = {
-						schemaStore = {
-							enable = true,
-							url = "https://www.schemastore.org/api/json/catalog.json",
-						},
-						schemas = {
-							kubernetes = "*.yaml",
-							["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
-							["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-							["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-							["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
-							["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
-							["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
-							["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
-							["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
-							["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*gitlab-ci*.{yml,yaml}",
-							["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
-							["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
-							["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
-						},
-					},
-				},
-				filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
-			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
