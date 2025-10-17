@@ -90,17 +90,6 @@ return {
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-			-- Disable inline diagnostics
-			vim.diagnostic.config({
-				virtual_text = false,
-				float = {
-					show_header = true,
-					source = "if_many",
-					border = "rounded",
-					focusable = false,
-				},
-			})
-
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
