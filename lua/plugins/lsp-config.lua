@@ -12,6 +12,8 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
@@ -26,16 +28,20 @@ return {
 					"pyright",
 					"helm_ls",
 					"yamlls",
+					"terraformls",
 				},
 				handlers = {
 					-- Default handler for most servers
 					function(server_name)
-						require("lspconfig")[server_name].setup({})
+						require("lspconfig")[server_name].setup({
+							capabilities = capabilities,
+						})
 					end,
 
 					-- Custom handler for yamlls
 					yamlls = function()
 						require("lspconfig").yamlls.setup({
+							capabilities = capabilities,
 							on_attach = function(client, bufnr)
 								-- Check if current buffer is a helm file
 								if vim.bo[bufnr].filetype == "helm" then
@@ -66,6 +72,7 @@ return {
 
 					helm_ls = function()
 						require("lspconfig").helm_ls.setup({
+							capabilities = capabilities,
 							settings = {
 								["helm-ls"] = {
 									yamlls = {
@@ -73,6 +80,20 @@ return {
 									},
 								},
 							},
+						})
+					end,
+
+					svelte = function()
+						require("lspconfig").svelte.setup({
+							capabilities = capabilities,
+							on_attach = function(client, _)
+								vim.api.nvim_create_autocmd("BufWritePost", {
+									pattern = { "*.js", "*.ts" },
+									callback = function(ctx)
+										client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+									end,
+								})
+							end,
 						})
 					end,
 				},
@@ -86,76 +107,6 @@ return {
 			"towolf/vim-helm",
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
-
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.svelte.setup({
-				capabilities = capabilities,
-				-- This is because /lib file changes are otherwise not picked up automatically
-				-- https://github.com/sveltejs/language-tools/issues/2008#issuecomment-1838251681
-				on_attach = function(client, _)
-					vim.api.nvim_create_autocmd("BufWritePost", {
-						pattern = { "*.js", "*.ts" },
-						callback = function(ctx)
-							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-						end,
-					})
-				end,
-			})
-
-			lspconfig.terraformls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.html.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.eslint.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.cssls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.sqlls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.prismals.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.helm_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					["helm-ls"] = {
-						yamlls = {
-							path = "yaml-language-server",
-						},
-					},
-				},
-			})
-
-
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
