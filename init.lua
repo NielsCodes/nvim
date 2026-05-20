@@ -73,6 +73,7 @@ vim.filetype.add({
 	extension = {
 		mjml = "html",
 		sqlx = "sql",
+		svx = "markdown",
 	},
 })
 
